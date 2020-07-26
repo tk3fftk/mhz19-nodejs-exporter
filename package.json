@@ -1,0 +1,12 @@
+{
+  "name": "mhz19-nodejs-exporter",
+  "version": "1.0.0",
+  "description": "prometheus exporter for mhz19 module\"",
+  "main": "index.js",
+  "repository": "git@github.com:tk3fftk/mhz19-nodejs-exporter.git",
+  "author": "tk3fftk <tktk.stereoman@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "serialport": "^9.0.0"
+  }
+}
