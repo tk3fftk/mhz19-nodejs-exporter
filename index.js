@@ -35,12 +35,13 @@ const readCO2Cmd = Buffer.from([
   const parser = port.pipe(new ByteLength({ length: 9 }));
 
   port.write(readCO2Cmd, (err) => {
+    console.log('write: ', readCO2Cmd);
     if (err) {
       console.error(err);
     }
   });
 
   parser.on('data', (data) => {
-    console.log(data.toString());
+    console.log('read: ', data);
   });
 })();
