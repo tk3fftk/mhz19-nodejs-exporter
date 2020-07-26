@@ -2,6 +2,8 @@
 
 const SerialPort = require('serialport');
 const fs = require('fs').promises;
+const ByteLength = require('@serialport/parser-byte-length');
+const { parse } = require('path');
 let serialPath = process.env.SERIAL_PATH || '/dev/serial0';
 const readCO2Cmd = Buffer.from([
   0xff,
@@ -30,13 +32,15 @@ const readCO2Cmd = Buffer.from([
     parity: 'none',
   });
 
+  const parser = port.pipe(new ByteLength({ length: 9 }));
+
   port.write(readCO2Cmd, (err) => {
     if (err) {
       console.error(err);
     }
   });
 
-  port.on('data', (data) => {
-    console.log(data);
+  parser.on('data', (data) => {
+    console.log(data.toString());
   });
 })();

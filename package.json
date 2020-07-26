@@ -7,6 +7,7 @@
   "author": "tk3fftk <tktk.stereoman@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@serialport/parser-byte-length": "^9.0.0",
     "serialport": "^9.0.0"
   }
 }
